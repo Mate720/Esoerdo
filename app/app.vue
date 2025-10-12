@@ -1,5 +1,9 @@
 <template>
   <div>
-    <h1 class="bg-red-500 text-3xl font-bold underline">Hello world!</h1>
+    <Navbar />
+    <main>
+      <NuxtPage />
+    </main>
+    <Footer />
   </div>
 </template>
