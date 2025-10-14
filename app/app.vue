@@ -1,9 +1,15 @@
+<script setup>
+useHead({
+  bodyAttrs: {
+    class: "dark pt-32"
+  }
+});
+</script>
+
 <template>
-  <div>
-    <Navbar />
-    <main>
-      <NuxtPage />
-    </main>
-    <Footer />
-  </div>
+  <Navbar />
+  <main class="px-32">
+    <NuxtPage />
+  </main>
+  <Footer />
 </template>
