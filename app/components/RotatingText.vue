@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { AnimatePresence, Motion, type Target, type Transition, type VariantLabels } from "motion-v";
-import { computed, onUnmounted, ref, watch } from "vue";
+import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 
 type StaggerFrom = "first" | "last" | "center" | "random" | number;
 type SplitBy = "characters" | "words" | "lines";
@@ -171,16 +171,20 @@ const reset = (): void => {
 };
 
 const cleanupInterval = (): void => {
-  if (intervalId) {
-    clearInterval(intervalId);
-    intervalId = null;
-  }
+  onMounted(() => {
+    if (intervalId) {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+  });
 };
 
 const startInterval = (): void => {
-  if (props.auto) {
-    intervalId = setInterval(next, props.rotationInterval);
-  }
+  onMounted(() => {
+    if (props.auto) {
+      intervalId = setInterval(next, props.rotationInterval);
+    }
+  });
 };
 
 defineExpose({
