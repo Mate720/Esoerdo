@@ -261,7 +261,12 @@ export const AnimalQuestions = [
     id: 37,
     animalName: "Okapi",
     question: "The okapi is related to which large African mammal and where is it native?",
-    answers: ["Related to antelope; native to Arctic regions", "Related to the horse; native to South America", "Related to the elephant; native to Australia", "Related to the giraffe; native to the Congo rainforests of central Africa"],
+    answers: [
+      "Related to antelope; native to Arctic regions",
+      "Related to the horse; native to South America",
+      "Related to the elephant; native to Australia",
+      "Related to the giraffe; native to the Congo rainforests of central Africa"
+    ],
     correctIndex: 3
   },
   {

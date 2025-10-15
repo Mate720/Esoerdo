@@ -8,7 +8,7 @@ useHead({
 
 <template>
   <Navbar />
-  <main class="px-32">
+  <main class="px-6 md:px-12 lg:px-32">
     <NuxtPage />
   </main>
   <Footer />

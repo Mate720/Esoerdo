@@ -62,12 +62,16 @@ const splitIntoCharacters = (text: string): string[] => {
     const IntlWithSegmenter = Intl as typeof Intl & {
       Segmenter: new (
         locales?: string | string[],
-        options?: { granularity: "grapheme" | "word" | "sentence" }
+        options?: {
+          granularity: "grapheme" | "word" | "sentence";
+        }
       ) => {
         segment: (text: string) => Iterable<{ segment: string }>;
       };
     };
-    const segmenter = new IntlWithSegmenter.Segmenter("en", { granularity: "grapheme" });
+    const segmenter = new IntlWithSegmenter.Segmenter("en", {
+      granularity: "grapheme"
+    });
     return [...segmenter.segment(text)].map(({ segment }) => segment);
   }
 
@@ -146,11 +150,7 @@ const next = (): void => {
 
 const previous = (): void => {
   const isAtStart = currentTextIndex.value === 0;
-  const prevIndex = isAtStart
-    ? props.loop
-      ? props.texts.length - 1
-      : currentTextIndex.value
-    : currentTextIndex.value - 1;
+  const prevIndex = isAtStart ? (props.loop ? props.texts.length - 1 : currentTextIndex.value) : currentTextIndex.value - 1;
 
   if (prevIndex !== currentTextIndex.value) {
     handleIndexChange(prevIndex);
@@ -209,25 +209,13 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <Motion
-    tag="span"
-    :class="cn('flex flex-wrap whitespace-pre-wrap relative', mainClassName)"
-    v-bind="$attrs"
-    :transition="transition"
-    layout
-  >
+  <Motion tag="span" :class="cn('flex flex-wrap whitespace-pre-wrap relative', mainClassName)" v-bind="$attrs" :transition="transition" layout>
     <span class="sr-only">
       {{ texts[currentTextIndex] }}
     </span>
 
     <AnimatePresence :mode="animatePresenceMode" :initial="animatePresenceInitial">
-      <Motion
-        :key="currentTextIndex"
-        tag="span"
-        :class="cn(splitBy === 'lines' ? 'flex flex-col w-full' : 'flex flex-wrap whitespace-pre-wrap relative')"
-        aria-hidden="true"
-        layout
-      >
+      <Motion :key="currentTextIndex" tag="span" :class="cn(splitBy === 'lines' ? 'flex flex-col w-full' : 'flex flex-wrap whitespace-pre-wrap relative')" aria-hidden="true" layout>
         <span v-for="(wordObj, wordIndex) in elements" :key="wordIndex" :class="cn('inline-flex', splitLevelClassName)">
           <Motion
             v-for="(char, charIndex) in wordObj.characters"
@@ -243,8 +231,7 @@ onUnmounted(() => {
                 elements.reduce((sum, word) => sum + word.characters.length, 0)
               )
             }"
-            :class="cn('inline-block', elementLevelClassName)"
-          >
+            :class="cn('inline-block', elementLevelClassName)">
             {{ char }}
           </Motion>
           <span v-if="wordObj.needsSpace" class="whitespace-pre"> </span>

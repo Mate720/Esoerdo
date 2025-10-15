@@ -41,24 +41,14 @@ export const PlantQuestions = [
     id: 5,
     plantName: "Cocoa tree (Theobroma cacao)",
     question: "Cocoa trees are cultivated mainly for which product?",
-    answers: [
-      "Timber for construction",
-      "Leaves used for tea",
-      "Latex for rubber production",
-      "Cocoa beans used to make chocolate"
-    ],
+    answers: ["Timber for construction", "Leaves used for tea", "Latex for rubber production", "Cocoa beans used to make chocolate"],
     correctIndex: 0
   },
   {
     id: 6,
     plantName: "Pineapple (Ananas comosus)",
     question: "A pineapple plant is botanically best described as:",
-    answers: [
-      "A climbing vine",
-      "A terrestrial herbaceous plant (a bromeliad) that grows near the ground",
-      "A woody tree",
-      "A cactus"
-    ],
+    answers: ["A climbing vine", "A terrestrial herbaceous plant (a bromeliad) that grows near the ground", "A woody tree", "A cactus"],
     correctIndex: 1
   },
   {
@@ -72,12 +62,7 @@ export const PlantQuestions = [
     id: 8,
     plantName: "Date palm (Phoenix dactylifera)",
     question: "Date palms are primarily cultivated for:",
-    answers: [
-      "Their edible leaves",
-      "Their rubber-rich sap",
-      "Their ornamental flowers",
-      "Their sweet edible dates (fruit)"
-    ],
+    answers: ["Their edible leaves", "Their rubber-rich sap", "Their ornamental flowers", "Their sweet edible dates (fruit)"],
     correctIndex: 3
   },
   {
@@ -105,12 +90,7 @@ export const PlantQuestions = [
     id: 12,
     plantName: "Banana (Musa species)",
     question: "Botanically, banana plants are classified as:",
-    answers: [
-      "Shrubs",
-      "Large herbaceous flowering plants (often called giant herbs)",
-      "Trees",
-      "Succulent cacti"
-    ],
+    answers: ["Shrubs", "Large herbaceous flowering plants (often called giant herbs)", "Trees", "Succulent cacti"],
     correctIndex: 1
   },
   {
@@ -131,60 +111,35 @@ export const PlantQuestions = [
     id: 15,
     plantName: "Ebony (Diospyros spp.)",
     question: "Ebony wood is prized mainly for its:",
-    answers: [
-      "Dense, very dark heartwood used in fine furniture and musical instruments",
-      "Edible fruits",
-      "Latex production",
-      "Fragrant essential oils"
-    ],
+    answers: ["Dense, very dark heartwood used in fine furniture and musical instruments", "Edible fruits", "Latex production", "Fragrant essential oils"],
     correctIndex: 0
   },
   {
     id: 16,
     plantName: "Sandalwood (Santalum spp.)",
     question: "Sandalwood is harvested primarily for its:",
-    answers: [
-      "Construction timber only",
-      "Rubber",
-      "Fragrant heartwood and essential oils used in perfumes and incense",
-      "Edible nuts"
-    ],
+    answers: ["Construction timber only", "Rubber", "Fragrant heartwood and essential oils used in perfumes and incense", "Edible nuts"],
     correctIndex: 2
   },
   {
     id: 17,
     plantName: "Cola (Cola spp.)",
     question: "Cola trees produce nuts that are traditionally known for:",
-    answers: [
-      "Caffeine-containing nuts used as stimulant and flavoring (cola)",
-      "Edible leaves used as salad",
-      "Aromatic resin",
-      "Timber for shipbuilding"
-    ],
+    answers: ["Caffeine-containing nuts used as stimulant and flavoring (cola)", "Edible leaves used as salad", "Aromatic resin", "Timber for shipbuilding"],
     correctIndex: 0
   },
   {
     id: 18,
     plantName: "Rotang / Rattan palm",
     question: "Rattan (rotang) is harvested mainly for:",
-    answers: [
-      "Flexible canes used for furniture, baskets and weaving",
-      "Aromatic oils",
-      "Spice production",
-      "Edible fruit widely consumed fresh"
-    ],
+    answers: ["Flexible canes used for furniture, baskets and weaving", "Aromatic oils", "Spice production", "Edible fruit widely consumed fresh"],
     correctIndex: 0
   },
   {
     id: 19,
     plantName: "Strophanthus",
     question: "Strophanthus species are historically notable because they produce compounds that were used as:",
-    answers: [
-      "Timber for heavy construction",
-      "Cardiac-active glycosides used as arrow poison and investigated in medicine",
-      "Natural dyes only",
-      "Edible sweeteners"
-    ],
+    answers: ["Timber for heavy construction", "Cardiac-active glycosides used as arrow poison and investigated in medicine", "Natural dyes only", "Edible sweeteners"],
     correctIndex: 1
   },
   {
@@ -198,12 +153,7 @@ export const PlantQuestions = [
     id: 21,
     plantName: "Victoria amazonica (Amazonian water lily)",
     question: "What is a striking feature of the giant Amazonian water lily (Victoria amazonica)?",
-    answers: [
-      "It is a type of climbing vine",
-      "It grows only in deserts",
-      "It has enormous floating leaves (pads) that can support heavy weight",
-      "It is a tall emergent tree"
-    ],
+    answers: ["It is a type of climbing vine", "It grows only in deserts", "It has enormous floating leaves (pads) that can support heavy weight", "It is a tall emergent tree"],
     correctIndex: 2
   },
   {
