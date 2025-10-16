@@ -9,7 +9,7 @@ watch(
   () => route.fullPath,
   () => {
     snakeMenuEnabled.value = false;
-  }
+  },
 );
 </script>
 
@@ -27,7 +27,7 @@ watch(
             alt="Snake Hamburger Menu" />
         </span>
       </div>
-      <div :class="snakeMenuEnabled ? 'flex' : 'hidden lg:flex'"
+      <div :class="snakeMenuEnabled ? 'flex lg:hidden' : 'hidden lg:flex'"
         class="text-xl lg:text-md flex-col lg:flex-row w-full lg:w-fit items-center p-2 gap-4 font-bold">
         <NuxtLink class="hover:text-accent duration-300" to="/">Home</NuxtLink>
         <NuxtLink class="hover:text-accent duration-300" to="/about">About</NuxtLink>
