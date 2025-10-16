@@ -21,7 +21,6 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@primevue/nuxt-module": "^4.4.1",
-    "prettier": "3.6.2"
+    "@primevue/nuxt-module": "^4.4.1"
   }
 }
