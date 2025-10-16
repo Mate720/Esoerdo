@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import {ref , reactive } from 'vue';
+import { ref, reactive } from 'vue';
 import RadioButton from 'primevue/radiobutton';
 import RadioButtonGroup from 'primevue/radiobuttongroup';
 import AnimalQuestions from '~/data/AnimalQuestion';
@@ -45,9 +45,11 @@ const reset = () => {
 }
 
 watch(
-    ()=> route.fullPath,
-    ()=> { actual.value = correct.value = 0;
-    selectedIndex.value = -1;}
+    () => route.fullPath,
+    () => {
+        actual.value = correct.value = 0;
+        selectedIndex.value = -1;
+    }
 )
 
 
