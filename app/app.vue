@@ -1,8 +1,6 @@
 <script setup>
 useHead({
-  bodyAttrs: {
-    class: "dark pt-32"
-  }
+  bodyAttrs: { class: "dark pt-32" }
 });
 </script>
 
