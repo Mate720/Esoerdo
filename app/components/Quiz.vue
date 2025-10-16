@@ -3,7 +3,7 @@ const categories = [
   {
     id: 1,
     title: "Animals",
-    link: "/",
+    link: "/animals",
     description: "Questions only about animals",
     imgSource: "/blankImg.png",
   },
@@ -31,7 +31,7 @@ const categories = [
     <div class="bg-amber-500 flex justify-around">
       <!-- :key must be on the element created by v-for -->
       <div v-for="card in categories" :key="card.id" class="mx-2">
-        <QuizCard :title="card.title" :description="card.description" :img-source="card.imgSource" />
+        <QuizCard :title="card.title" :description="card.description" :img-source="card.imgSource" :link="card.link"/>
       </div>
     </div>
   </div>
