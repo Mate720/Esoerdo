@@ -8,7 +8,6 @@ const props = defineProps<{
 
 <template>
   <article class="p-5 bg-sky-500 rounded-xl">
-    <!-- keep case consistent with file on disk -->
     <NuxtImg :src="imgSource ?? '/blankImg.png'" alt="card image" />
     <div>
       <h2>{{ title }}</h2>
