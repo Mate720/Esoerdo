@@ -2,6 +2,7 @@
 const props = defineProps<{
   title: string|undefined
   description: string|undefined
+  link: string| undefined
 }>()
 </script>
 
@@ -14,6 +15,6 @@ const props = defineProps<{
     <div>
       <p>{{description}}</p>
     </div>
-    <div class="pt-5"><Button label="Test me!" /></div>
+        <NuxtLink class="hover:text-accent duration-300" :to="link">Test me!</NuxtLink>
   </div>
 </template>
