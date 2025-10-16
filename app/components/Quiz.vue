@@ -4,7 +4,7 @@ const categories = [
     {
         key: 1,
         title: "Animals",
-        link: "/",
+        link: "/animals",
         description: "Questions only about animals",
         imgSource: "/blankImg.png"
     },
@@ -30,7 +30,7 @@ const categories = [
     <h1 class="text-center text-6xl m-2">Quizezz</h1>
   <div class="bg-amber-500 flex justify-around">
     <div v-for="(card,index) in categories">
-      <QuizCard :title="categories[index]!.title" :description="categories[index]!.description" :key="categories[index]!.key"  />
+      <QuizCard :title="categories[index]!.title" :description="categories[index]!.description" :link="categories[index]!.link" :key="categories[index]!.key"  />
     </div>
   </div>
 </template>
