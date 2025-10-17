@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { useAnimalQuestions } from '~/composable/useAnimalQuestions';
-
 const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMessage } = useAnimalQuestions();
-
 </script>
 
 <template>
@@ -13,7 +11,6 @@ const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMe
     <section v-if="next < 10">
         <h1>Score: 10 / {{ correct }}</h1>
         <h3>{{ questions[actual]?.question }}</h3>
-
         <div>
             <div>
                 <RadioButtonGroup class="flex flex-col">
@@ -25,9 +22,7 @@ const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMe
             </div>
             <button class="bg-accent p-2 text-xl rounded-md cursor-pointer" type="button" @click="checkAnswer()">Check
                 answer</button>
-
         </div>
-
     </section>
 
     <section v-else>
@@ -40,14 +35,9 @@ const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMe
             </NuxtLink>
             <button class="bg-accent p-2 text-xl rounded-md  cursor-pointer" type="button"
                 @click="reset()">Restart</button>
-
         </div>
     </section>
-
-
-
 </template>
-
 
 <style>
 button {

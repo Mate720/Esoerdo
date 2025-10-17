@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { usePlantQuestions } from '~/composable/usePlantQuestions';
-
 const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMessage } = usePlantQuestions();
-
-
 </script>
 
 <template>
@@ -14,7 +11,6 @@ const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMe
   <section v-if="next < 10">
     <h1>Score: 10 / {{ correct }}</h1>
     <h3>{{ questions[actual]?.question }}</h3>
-
     <div>
       <div>
         <RadioButtonGroup class="flex flex-col">
@@ -26,26 +22,19 @@ const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMe
       </div>
       <button class="bg-accent p-2 text-xl rounded-md cursor-pointer" type="button" @click="checkAnswer()">Check
         answer</button>
-
     </div>
-
   </section>
 
   <section v-else>
     <p>End of Quiz</p>
     <p>Results: 10 / {{ correct }}</p>
     <p>{{ resultMessage }}</p>
-
     <div class="flex justify-center">
       <NuxtLink class="bg-accent p-2 text-xl rounded-md  cursor-pointer" to="/quiz" @click="reset()">Go back!
       </NuxtLink>
       <button class="bg-accent p-2 text-xl rounded-md  cursor-pointer" type="button" @click="reset()">Restart</button>
-
     </div>
   </section>
-
-
-
 </template>
 
 
