@@ -2,15 +2,16 @@
 const route = useRoute();
 const snakeMenuEnabled = useState("snakeMenuEnabled", () => false);
 
+// biome-ignore lint: false
 const toggleMenu = () => {
-  snakeMenuEnabled.value = !snakeMenuEnabled.value;
+	snakeMenuEnabled.value = !snakeMenuEnabled.value;
 };
 
 watch(
-  () => route.fullPath,
-  () => {
-    snakeMenuEnabled.value = false;
-  },
+	() => route.fullPath,
+	() => {
+		snakeMenuEnabled.value = false;
+	},
 );
 </script>
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAnimalQuestions } from '~/composable/useAnimalQuestions';
-const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMessage } = useAnimalQuestions();
+const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMessage,quit } = useAnimalQuestions();
 </script>
 
 <template>
@@ -21,7 +21,9 @@ const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMe
                 </RadioButtonGroup>
             </div>
             <button class="bg-accent p-2 text-xl rounded-md cursor-pointer" type="button" @click="checkAnswer()">Check
-                answer</button>
+                answer</button> 
+                <NuxtLink class="bg-accent p-2 text-xl rounded-md  cursor-pointer" to="/quiz" @click="quit()">Quit test
+            </NuxtLink>
         </div>
     </section>
 

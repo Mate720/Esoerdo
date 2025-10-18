@@ -1,10 +1,9 @@
 <script setup lang="ts">
-const props = defineProps<{
-  title: string;
-  description: string;
-  imgSource?: string;
-  link: string;
-  
+defineProps<{
+	title: string;
+	description: string;
+	imgSource?: string;
+  link:string;
 }>();
 </script>
 

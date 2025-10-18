@@ -1,23 +1,16 @@
 <template>
-  <section>
-    <h1>Főoldal</h1>
-    <div class="flex text-5xl">
-      <span class="font-bold bg-[#eff6f1] text-[#0d120e] px-4 py-1 rounded-l w-fit">Explore</span>
-      <RotatingText
-        :texts="['Wildlife', 'Beasts', 'Nature', 'Ecosystem']"
-        mainClassName="bg-primary text-black px-4 py-1 font-caesar rounded-r w-fit"
-        staggerFrom="last"
-        :initial="{ y: '100%' }"
-        :animate="{ y: 0 }"
-        :exit="{ y: '-120%' }"
-        :staggerDuration="0.025"
-        splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-        :transition="{
-          type: 'spring',
-          damping: 20,
-          stiffness: 400
-        }"
-        :rotationInterval="3000" />
+
+  <section class="w-full min-h-screen flex flex-col items-center justify-center ">
+    <div class="flex flex-row gap-4">
+      <h1
+        class="text-wrap w-full font-bold text-8xl bg-gradient-to-r from-primary to-white bg-clip-text text-transparent">
+        EXPLORE THE RAINFORESTS AROUND YOU
+      </h1>
+      <div class="w-full">
+        <NuxtImg src="/rainforest.jpg" alt="Rainforest" class="rounded-4xl" />
+      </div>
     </div>
+    <Globe />
   </section>
+
 </template>
