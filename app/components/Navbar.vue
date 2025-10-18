@@ -34,7 +34,7 @@ watch(
         <NuxtLink class="hover:text-accent duration-300" to="/">Home</NuxtLink>
         <NuxtLink class="hover:text-accent duration-300" to="/about">About</NuxtLink>
         <NuxtLink class="hover:text-accent duration-300" to="/quiz">Quiz</NuxtLink>
-        <NuxtLink class="hover:text-accent duration-300" to="/">Animals | Plants</NuxtLink>
+        <NuxtLink class="hover:text-accent duration-300" to="/wildlife">Animals | Plants</NuxtLink>
         <NuxtLink
           class="hover:bg-accent duration-300 uppercase font-caesar text-2xl lg:text-xl rounded bg-primary text-[#09100b] px-2 py-1"
           to="/">Intrested</NuxtLink>

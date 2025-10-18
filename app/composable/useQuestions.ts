@@ -4,13 +4,26 @@ import { useRoute } from "vue-router";
 
 export function useQuestions(questionsData: any[]) {
   const route = useRoute();
+  const router = useRouter();
   const toast = useToast();
   const questions = ref(questionsData);
   const askedQuestions = ref<number[]>([]);
-  const actual = ref(0);
+  const actual = ref(Math.floor(Math.random() * questions.value.length));
   const next = ref(0);
   const correct = ref(0);
   const selectedIndex = ref(-1);
+
+  const confirmDialogVisible = ref(false);  
+  let confirmResolve: ((value: boolean) => void) | null = null; 
+
+ 
+  const showConfirmDialog = (): Promise<boolean> => {
+    confirmDialogVisible.value = true;  
+    return new Promise((resolve) => {
+      confirmResolve = resolve;        
+    });
+  };
+
 
   const generateNextQuestion = () => {
     if (askedQuestions.value.length >= questions.value.length) {
@@ -33,7 +46,9 @@ export function useQuestions(questionsData: any[]) {
         group: "br",
         life: 1500,
       });
-    } else if (selectedIndex.value === questions.value[actual.value]?.correctIndex) {
+    } else if (
+      selectedIndex.value === questions.value[actual.value]?.correctIndex
+    ) {
       next.value++;
       correct.value++;
       toast.add({
@@ -66,6 +81,25 @@ export function useQuestions(questionsData: any[]) {
     selectedIndex.value = -1;
     askedQuestions.value = [];
     generateNextQuestion();
+  };
+
+  const confirmDialogAnswer = (answer: boolean) => {
+    confirmDialogVisible.value = false; 
+    if (confirmResolve) {
+      confirmResolve(answer);             
+      confirmResolve = null;
+    }
+  };
+
+  const quit = async () => {
+    const confirmed = await showConfirmDialog();
+    if (confirmed) {
+      next.value = actual.value = correct.value = 0;
+      selectedIndex.value = -1;
+      askedQuestions.value = [];
+      generateNextQuestion();
+      await router.push('/quiz'); 
+    }
   };
 
   watch(
@@ -106,5 +140,8 @@ export function useQuestions(questionsData: any[]) {
     checkAnswer,
     onSelect,
     reset,
+    confirmDialogVisible,
+    confirmDialogAnswer,
+    quit,
   };
 }

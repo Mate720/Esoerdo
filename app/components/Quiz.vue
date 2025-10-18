@@ -27,9 +27,7 @@ const categories = [
 <template>
   <div class="quiz-list">
     <h1 class="text-center text-6xl m-2">Quizezz</h1>
-
     <div class="bg-amber-500 flex justify-around">
-      <!-- :key must be on the element created by v-for -->
       <div v-for="card in categories" :key="card.id" class="mx-2">
         <QuizCard :title="card.title" :description="card.description" :img-source="card.imgSource" :link="card.link"/>
       </div>
