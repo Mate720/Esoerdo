@@ -1,7 +1,3 @@
-// quiz-questions-plants.js
-// Export one array of questions for a Vue quiz (plants).
-// Each question: { id, plantName, question, answers: [...], correctIndex }
-// correctIndex is 0-based. Answers and questions are in English.
 
 export const PlantQuestions = [
   {

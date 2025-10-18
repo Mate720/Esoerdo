@@ -1,7 +1,3 @@
-// sustainability-tips-rainforest.js
-// Export one array of sustainability tips (rainforest-related).
-// Each tip: { id, title, description }
-// All text is in English.
 
 export const RainforestSustainabilityTips = [
   {

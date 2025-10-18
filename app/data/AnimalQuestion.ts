@@ -1,8 +1,3 @@
-// quiz-questions-animals.js
-// Export one array of questions for a Vue quiz (animals).
-// Each question: { id, animalName, question, answers: [...], correctIndex }
-// correctIndex is 0-based. All text is in English.
-// Correct-answer positions are distributed to avoid repeating the same checkbox.
 
 export const AnimalQuestions = [
   {
