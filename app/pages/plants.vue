@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { usePlantQuestions } from '~/composable/usePlantQuestions';
-const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMessage, quit, confirmDialogAnswer, confirmDialogVisible } = usePlantQuestions();
+const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMessage, quit, confirmDialogAnswer, confirmDialogVisible, selectedIndex } = usePlantQuestions();
 
 const selectedAnswer = ref<number | null>(null);
 </script>
@@ -56,9 +56,9 @@ const selectedAnswer = ref<number | null>(null);
         <div class="flex flex-col gap-4">
           <label v-for="(choice, index) in questions[actual]?.answers" :key="index"
             class="flex items-center gap-4 p-4 rounded-xl border border-white/30 bg-transparent hover:bg-white/5 transition-all duration-300 cursor-pointer"
-            :class="{ 'bg-primary/10 border-primary': selectedAnswer === index }"
-            @click="() => { onSelect(index); selectedAnswer = index; }">
-            <input type="radio" :value="choice" :checked="selectedAnswer === index"
+            :class="{ 'bg-primary/10 border-primary': selectedIndex === index }"
+            @click="() => { onSelect(index); selectedIndex = index; }">
+            <input type="radio" :value="choice" :checked="selectedIndex === index"
               class="w-5 h-5 cursor-pointer accent-primary" />
             <span class="text-white font-medium flex-1">
               {{ choice }}
@@ -112,7 +112,7 @@ const selectedAnswer = ref<number | null>(null);
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#0d120e"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             class="lucide lucide-info-icon lucide-info">
-            ircle cx="12"2" cy="12" r="10" />
+           <circle cx="12" cy="12" r="10" />
             <path d="M12 16v-4" />
             <path d="M12 8h.01" />
           </svg>
