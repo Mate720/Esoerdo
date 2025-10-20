@@ -1,31 +1,25 @@
 <template>
   <div ref="containerRef" class="relative w-full h-full">
-    <div
-      v-for="item in grid"
-      :key="item.id"
-      :data-key="item.id"
-      class="absolute box-content"
-      :style="{ willChange: 'transform, width, height, opacity' }"
-      @click="openUrl(item.url)"
+    <div v-for="item in grid" :key="item.id" :data-key="item.id" class="absolute box-content"
+      :style="{ willChange: 'transform, width, height, opacity' }" @click="openUrl(item.url)"
       @mouseenter="e => handleMouseEnter(item.id, e.currentTarget as HTMLElement)"
-      @mouseleave="e => handleMouseLeave(item.id, e.currentTarget as HTMLElement)"
-    >
+      @mouseleave="e => handleMouseLeave(item.id, e.currentTarget as HTMLElement)">
       <div
         class="relative w-full h-full bg-cover bg-center rounded-[10px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] uppercase text-[10px] leading-[10px]"
-        :style="{ backgroundImage: `url(${item.img})` }"
-      >
-        <div
-          v-if="colorShiftOnHover"
-          class="color-overlay absolute inset-0 rounded-[10px] bg-gradient-to-tr from-pink-500/50 to-sky-500/50 opacity-0 pointer-events-none"
-        />
+        :style="{ backgroundImage: `url(${item.img})` }">
+
+        <div v-if="colorShiftOnHover"
+          class="color-overlay absolute inset-0 rounded-[10px] bg-gradient-to-tr from-pink-500/50 to-sky-500/50 opacity-0 pointer-events-none" />
       </div>
     </div>
   </div>
 </template>
 
+
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, watchEffect, nextTick, useTemplateRef } from 'vue';
 import { gsap } from 'gsap';
+
 
 interface Item {
   id: string;
@@ -33,6 +27,7 @@ interface Item {
   url: string;
   height: number;
 }
+
 
 interface MasonryProps {
   items: Item[];
@@ -46,10 +41,11 @@ interface MasonryProps {
   colorShiftOnHover?: boolean;
 }
 
+
 const props = withDefaults(defineProps<MasonryProps>(), {
   ease: 'power3.out',
   duration: 2,
-  stagger:0.2,
+  stagger: 0.2,
   animateFrom: 'top',
   scaleOnHover: true,
   hoverScale: 0.90,
@@ -57,37 +53,46 @@ const props = withDefaults(defineProps<MasonryProps>(), {
   colorShiftOnHover: false
 });
 
+
 const useMedia = (queries: string[], values: number[], defaultValue: number) => {
   const get = () => values[queries.findIndex(q => matchMedia(q).matches)] ?? defaultValue;
   const value = ref<number>(get());
 
+
   onMounted(() => {
     const handler = () => (value.value = get());
     queries.forEach(q => matchMedia(q).addEventListener('change', handler));
+
 
     onUnmounted(() => {
       queries.forEach(q => matchMedia(q).removeEventListener('change', handler));
     });
   });
 
+
   return value;
 };
+
 
 const useMeasure = () => {
   const containerRef = useTemplateRef<HTMLDivElement>('containerRef');
   const size = ref({ width: 0, height: 0 });
   let resizeObserver: ResizeObserver | null = null;
 
+
   onMounted(() => {
     if (!containerRef.value) return;
+
 
     resizeObserver = new ResizeObserver(([entry]) => {
       const { width, height } = entry!.contentRect;
       size.value = { width, height };
     });
 
+
     resizeObserver.observe(containerRef.value);
   });
+
 
   onUnmounted(() => {
     if (resizeObserver) {
@@ -95,8 +100,10 @@ const useMeasure = () => {
     }
   });
 
+
   return [containerRef, size] as const;
 };
+
 
 const preloadImages = async (urls: string[]): Promise<void> => {
   await Promise.all(
@@ -111,15 +118,18 @@ const preloadImages = async (urls: string[]): Promise<void> => {
   );
 };
 
+
 const columns = useMedia(
   ['(min-width:1500px)', '(min-width:1000px)', '(min-width:600px)', '(min-width:400px)'],
   [5, 4, 3, 2],
   1
 );
 
+
 const [containerRef, size] = useMeasure();
 const imagesReady = ref(false);
 const hasMounted = ref(false);
+
 
 const grid = computed(() => {
   if (!size.value.width) return [];
@@ -128,20 +138,24 @@ const grid = computed(() => {
   const totalGaps = (columns.value - 1) * gap;
   const columnWidth = (size.value.width - totalGaps) / columns.value;
 
+
   return props.items.map(child => {
     const col = colHeights.indexOf(Math.min(...colHeights));
     const x = col * (columnWidth + gap);
     const height = child.height / 2;
     const y = colHeights[col];
 
+
     colHeights[col] += height + gap;
     return { ...child, x, y, w: columnWidth, h: height };
   });
 });
 
+
 const openUrl = (url: string) => {
   window.open(url, '_blank', 'noopener');
 };
+
 
 interface GridItem extends Item {
   x: number;
@@ -150,15 +164,18 @@ interface GridItem extends Item {
   h: number;
 }
 
+
 const getInitialPosition = (item: GridItem) => {
   const containerRect = containerRef.value?.getBoundingClientRect();
   if (!containerRect) return { x: item.x, y: item.y };
+
 
   let direction = props.animateFrom;
   if (props.animateFrom === 'random') {
     const dirs = ['top', 'bottom', 'left', 'right'];
     direction = dirs[Math.floor(Math.random() * dirs.length)] as typeof props.animateFrom;
   }
+
 
   switch (direction) {
     case 'top':
@@ -179,6 +196,7 @@ const getInitialPosition = (item: GridItem) => {
   }
 };
 
+
 const handleMouseEnter = (id: string, element: HTMLElement) => {
   if (props.scaleOnHover) {
     gsap.to(`[data-key="${id}"]`, {
@@ -192,6 +210,7 @@ const handleMouseEnter = (id: string, element: HTMLElement) => {
     if (overlay) gsap.to(overlay, { opacity: 0.3, duration: 0.3 });
   }
 };
+
 
 const handleMouseLeave = (id: string, element: HTMLElement) => {
   if (props.scaleOnHover) {
@@ -207,26 +226,32 @@ const handleMouseLeave = (id: string, element: HTMLElement) => {
   }
 };
 
+
 watchEffect(() => {
   preloadImages(props.items.map(i => i.img)).then(() => {
     imagesReady.value = true;
   });
 });
 
+
 watchEffect(() => {
   if (!imagesReady.value) return;
+
 
   const currentGrid = grid.value;
   void props.items.length;
   void columns.value;
   void size.value.width;
 
+
   if (!currentGrid.length) return;
+
 
   nextTick(() => {
     currentGrid.forEach((item, index) => {
       const selector = `[data-key="${item.id}"]`;
       const animProps = { x: item.x, y: item.y, width: item.w, height: item.h };
+
 
       if (!hasMounted.value) {
         const start = getInitialPosition(item);
@@ -258,6 +283,7 @@ watchEffect(() => {
         });
       }
     });
+
 
     hasMounted.value = true;
   });
