@@ -29,18 +29,19 @@
 *::after {
   box-sizing: border-box;
 }
-* {
-  margin: 0;
-}
+
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     interpolate-size: allow-keywords;
   }
 }
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
+
 img,
 picture,
 video,
@@ -49,12 +50,14 @@ svg {
   display: block;
   max-width: 100%;
 }
+
 input,
 button,
 textarea,
 select {
   font: inherit;
 }
+
 p,
 h1,
 h2,
@@ -64,9 +67,11 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
+
 p {
   text-wrap: pretty;
 }
+
 h1,
 h2,
 h3,
@@ -75,6 +80,7 @@ h5,
 h6 {
   text-wrap: balance;
 }
+
 #root,
 #__next {
   isolation: isolate;
@@ -86,6 +92,8 @@ body {
   color: var(--color-text);
   font-family: "Inter", sans-serif;
   font-weight: 400;
+  background-image: linear-gradient(125deg, #242424 3.13%, #000000 3.13%, #000000 50%, #242424 50%, #242424 53.13%, #000000 53.13%, #000000 100%);
+  background-size: 19.53px 27.90px;
 }
 
 .noSelect {
