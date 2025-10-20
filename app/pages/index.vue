@@ -22,8 +22,8 @@
     </div>
   </section>
 
-  <section id="about" class="w-full min-h-screen">
-    <div class="flex flex-col gap-12">
+  <section id="about" class="relative w-full min-h-screen">
+    <div class=" flex flex-col gap-12">
       <NuxtImg
         class="absolute -left-[2rem] w-[6rem] lg:w-[12rem] rotate-180 -z-10 brightness-50 animate-[float-leaf_10s_ease-in-out_infinite]"
         src="/leaf.svg" alt="Leaf" />
