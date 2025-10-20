@@ -32,9 +32,9 @@ watch(
       <div :class="snakeMenuEnabled ? 'flex' : 'hidden lg:flex'"
         class="flex-col lg:flex-row text-xl lg:text-md w-full lg:w-fit items-center p-2 gap-4 font-bold">
         <NuxtLink class="hover:text-accent duration-300" to="/">Home</NuxtLink>
-        <NuxtLink class="hover:text-accent duration-300" to="#about">About</NuxtLink>
+        <NuxtLink class="hover:text-accent duration-300" to="/#about">About</NuxtLink>
         <NuxtLink class="hover:text-accent duration-300" to="/quiz">Quiz</NuxtLink>
-        <NuxtLink class="hover:text-accent duration-300" to="/wildlife">Gallery</NuxtLink>
+        <NuxtLink class="hover:text-accent duration-300" to="/gallery">Gallery</NuxtLink>
         <NuxtLink
           class="hover:bg-accent duration-300 uppercase font-caesar text-2xl lg:text-xl rounded bg-primary text-[#09100b] px-2 py-1"
           to="https://www.rainforesttrust.org/?form=donation">DONATE NOW</NuxtLink>
