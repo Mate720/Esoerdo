@@ -32,7 +32,7 @@ watch(
       <div :class="snakeMenuEnabled ? 'flex' : 'hidden lg:flex'"
         class="flex-col lg:flex-row text-xl lg:text-md w-full lg:w-fit items-center p-2 gap-4 font-bold">
         <NuxtLink class="hover:text-accent duration-300" to="/">Home</NuxtLink>
-        <NuxtLink class="hover:text-accent duration-300" to="/about">About</NuxtLink>
+        <NuxtLink class="hover:text-accent duration-300" to="#about">About</NuxtLink>
         <NuxtLink class="hover:text-accent duration-300" to="/quiz">Quiz</NuxtLink>
         <NuxtLink class="hover:text-accent duration-300" to="/wildlife">Gallery</NuxtLink>
         <NuxtLink

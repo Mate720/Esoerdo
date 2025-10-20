@@ -96,6 +96,11 @@ body {
   background-size: 19.53px 27.90px;
 }
 
+html {
+  scroll-padding-top: 7rem;
+  scroll-behavior: smooth;
+}
+
 .noSelect {
   user-select: none;
   -drag: none;

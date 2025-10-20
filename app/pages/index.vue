@@ -22,7 +22,7 @@
     </div>
   </section>
 
-  <section class="w-full min-h-screen">
+  <section id="about" class="w-full min-h-screen">
     <div class="flex flex-col gap-12">
       <NuxtImg
         class="absolute -left-[2rem] w-[6rem] lg:w-[12rem] rotate-180 -z-10 brightness-50 animate-[float-leaf_10s_ease-in-out_infinite]"
