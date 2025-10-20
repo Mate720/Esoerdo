@@ -1,7 +1,5 @@
 <script setup lang="ts">
-
 const currentYear = new Date().getFullYear();
-
 </script>
 
 <template>
@@ -10,17 +8,18 @@ const currentYear = new Date().getFullYear();
       <div
         class="absolute top-0 left-0 w-full h-[0.1rem] rounded-t-2xl bg-gradient-to-r from-primary via-[#0d120e] to-primary">
       </div>
-      <div class="flex justify-between">
-        <div class=" flex flex-col gap-2 w-full py-4">
+      <div class="flex justify-center items-center md:justify-between">
+        <div class="flex flex-col gap-2 w-full py-4 text-center md:text-left">
           <h3 class="noSelect font-caesar uppercase font-bold text-2xl lg:text-3xl">Pantherium</h3>
           <p class="text-white/80">Join us in saving rainforests.<br>Together, for a thriving planet.</p>
         </div>
       </div>
-      <div class="flex justify-between">
-        <p class="flex items-end py-4 gap-10 w-1/2 font-bold">
+      <div class="flex flex-col md:flex-row md:justify-between text-center md:text-left">
+        <p class="order-1 md:order-0 flex justify-center md:justify-start md:items-end py-4 gap-10 md:w-1/2 font-bold">
           &copy; {{ currentYear }} Pantherium. All rights reserved.
         </p>
-        <div class="flex justify-end items-end py-4 gap-10 w-1/2 font-bold">
+        <div
+          class="order-0 md:order-1 flex flex-col gap-2 sm:gap-10 sm:flex-row items-center justify-center md:justify-end md:items-end py-4 md:w-1/2 font-bold">
           <NuxtLink to="/">Privacy Policy</NuxtLink>
           <NuxtLink to="/">Terms of Service</NuxtLink>
         </div>
