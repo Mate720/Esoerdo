@@ -39,7 +39,7 @@ const events = ref([
         </span>
       </template>
       <template #content="slotProps">
-        <Card class="mt-4 border border-accent !bg-transparent">
+        <Card class="mt-4 border border-accent !bg-black">
           <template #title>
             <span class="font-bold">
               {{ slotProps.item.status }}
