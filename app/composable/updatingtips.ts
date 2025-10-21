@@ -14,7 +14,7 @@ export function useUpdatingTips() {
       summary: "Tip: " + tip!.title,
       detail: tip!.description,
       severity: 'info',
-      life: 4000,
+      life: 10000,
       group: 'bl',
     });
   };
@@ -22,7 +22,7 @@ export function useUpdatingTips() {
   onMounted(() => {
     intervalId = setInterval(() => {
       showRandomTip();
-    }, 40000);
+    }, 60000);
   });
 
   onBeforeUnmount(() => {
