@@ -17,6 +17,7 @@ function shuffleArray(array: any[]) {
 }
 
 const itemsData = [
+  // 🐒 Állatok
   { id: '1', img: 'animals/BigDani.jpg', url: 'https://en.wikipedia.org/wiki/Golden_lion_tamarin', height: getRandomHeight() },
   { id: '2', img: 'animals/gorilla.jpg', url: 'https://en.wikipedia.org/wiki/Gorilla', height: getRandomHeight() },
   { id: '3', img: 'animals/LittleDani.jpg', url: 'https://en.wikipedia.org/wiki/Golden_lion_tamarin', height: getRandomHeight() },
@@ -31,15 +32,22 @@ const itemsData = [
   { id: '12', img: 'animals/capybara.webp', url: 'https://en.wikipedia.org/wiki/Capybara', height: getRandomHeight() },
   { id: '13', img: 'animals/asianelephant.jpg', url: 'https://en.wikipedia.org/wiki/Asian_elephant', height: getRandomHeight() },
   { id: '14', img: 'animals/bengaltiger.jpg', url: 'https://en.wikipedia.org/wiki/Bengal_tiger', height: getRandomHeight() },
-  { id: '15', img: 'animals/Okapi.jpeg', url: 'https://en.wikipedia.org/wiki/Okapi', height: getRandomHeight() },
+  { id: '15', img: 'animals/okapi.jpeg', url: 'https://en.wikipedia.org/wiki/Okapi', height: getRandomHeight() },
   { id: '16', img: 'animals/redpanda.jpg', url: 'https://en.wikipedia.org/wiki/Red_panda', height: getRandomHeight() },
   { id: '17', img: 'animals/spidermonkey.jpeg', url: 'https://en.wikipedia.org/wiki/Spider_monkey', height: getRandomHeight() },
   { id: '18', img: 'animals/orangutan.jpg', url: 'https://en.wikipedia.org/wiki/Orangutan', height: getRandomHeight() },
   { id: '19', img: 'animals/emeraldtreeboa.jpg', url: 'https://en.wikipedia.org/wiki/Emerald_tree_boa', height: getRandomHeight() },
-  { id: '20', img: 'plants/bleedingheart.webp', url: 'https://en.wikipedia.org/wiki/Lamprocapnos_spectabilis', height: getRandomHeight() },
-  { id: '21', img: 'plants/harpullia.jpg', url: 'https://en.wikipedia.org/wiki/Harpullia', height: getRandomHeight() },
-  { id: '22', img: 'plants/Oxera.jpg', url: 'https://en.wikipedia.org/wiki/Oxera_splendida', height: getRandomHeight() },
+  { id: '20', img: 'animals/glassfrog.jpg', url: 'https://en.wikipedia.org/wiki/Glass_frog', height: getRandomHeight() },
+  { id: '21', img: 'animals/sloth.jpg', url: 'https://en.wikipedia.org/wiki/Sloth', height: getRandomHeight() },
+  { id: '22', img: 'animals/jaguar.jpg', url: 'https://en.wikipedia.org/wiki/Jaguar', height: getRandomHeight() },
+  { id: '23', img: 'animals/harpyeagle.webp', url: 'https://en.wikipedia.org/wiki/Harpy_eagle', height: getRandomHeight() },
+
+  // 🌿 Növények
+  { id: '24', img: 'plants/bleedingheart.webp', url: 'https://en.wikipedia.org/wiki/Lamprocapnos_spectabilis', height: getRandomHeight() },
+  { id: '25', img: 'plants/harpullia.jpg', url: 'https://en.wikipedia.org/wiki/Harpullia', height: getRandomHeight() },
+  { id: '26', img: 'plants/Oxera.jpg', url: 'https://en.wikipedia.org/wiki/Oxera_splendida', height: getRandomHeight() },
 ]
+
 const items = ref(shuffleArray(itemsData))
 
 const openInNewTab = async (url: string) => {
