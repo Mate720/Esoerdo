@@ -1,6 +1,6 @@
 <template>
 
-  <section class="w-full h-fit items-center justify-center">
+  <section class="w-full min-h-[70vh] lg:min-h-[80vh] items-center justify-center">
     <div class="flex items-center flex-col lg:flex-row gap-4">
       <div class="flex flex-col gap-3 lg:gap-6 w-full lg:w-[60%]">
         <h1
