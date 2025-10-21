@@ -16,5 +16,8 @@ export default defineNuxtConfig({
         preset: Aura
       }
     }
+  },
+  routeRules: {
+    "/gallery": { ssr: false }
   }
-});
+})
