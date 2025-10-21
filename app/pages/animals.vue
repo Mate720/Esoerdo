@@ -70,7 +70,7 @@ onBeforeRouteLeave((to, from) => {
 
       <div class="flex flex-col sm:flex-row gap-4">
         <button @click="checkAnswer()"
-          class="hover:bg-accent duration-300 uppercase font-caesar font-bold text-2xl lg:text-xl rounded bg-primary text-[#09100b] px-2 py-1 cursor-pointer">
+          class="cursor-pointer hover:bg-accent duration-300 uppercase font-caesar font-bold text-2xl lg:text-xl rounded bg-primary text-[#09100b] px-2 py-1 ">
           Check Answer
         </button>
         <button @click="quit()"
@@ -128,7 +128,5 @@ onBeforeRouteLeave((to, from) => {
 </template>
 
 <style scoped>
-button {
-  transition: all 0.3s ease;
-}
+
 </style>
