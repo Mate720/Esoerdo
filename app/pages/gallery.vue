@@ -1,16 +1,3 @@
-<template>
-  <Masonry :items="items">
-    <template v-slot:item="{ item }">
-      <div
-        :style="{ height: item.height + 'px', overflow: 'hidden', cursor: 'pointer' }"
-        @click="window.open(item.url, '_blank')"
-      >
-        <img :src="item.img" :alt="item.id" />
-      </div>
-    </template>
-  </Masonry>
-</template>
-<!-- eslint-disable no-undef -->
 <script setup lang="ts">
 import { ref } from 'vue'
 
@@ -24,13 +11,12 @@ const getRandomHeight = () => {
 function shuffleArray(array: any[]) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
-    ;[array[i], array[j]] = [array[j], array[i]]
+      ;[array[i], array[j]] = [array[j], array[i]]
   }
   return array
 }
 
 const itemsData = [
-  // 🐒 Állatok
   { id: '1', img: 'animals/BigDani.jpg', url: 'https://en.wikipedia.org/wiki/Golden_lion_tamarin', height: getRandomHeight() },
   { id: '2', img: 'animals/gorilla.jpg', url: 'https://en.wikipedia.org/wiki/Gorilla', height: getRandomHeight() },
   { id: '3', img: 'animals/LittleDani.jpg', url: 'https://en.wikipedia.org/wiki/Golden_lion_tamarin', height: getRandomHeight() },
@@ -55,4 +41,25 @@ const itemsData = [
   { id: '22', img: 'plants/Oxera.jpg', url: 'https://en.wikipedia.org/wiki/Oxera_splendida', height: getRandomHeight() },
 ]
 const items = ref(shuffleArray(itemsData))
+
+const openInNewTab = async (url: string) => {
+  await navigateTo(url, {
+    open: {
+      target: '_blank',
+    },
+  })
+}
 </script>
+
+<template>
+  <ClientOnly>
+    <Masonry :items="items" class="min-h-[800px]">
+      <template v-slot:item="{ item }">
+        <div :style="{ height: item.height + 'px', overflow: 'hidden', cursor: 'pointer' }"
+          @click="openInNewTab(item.url)">
+          <img :src="item.img" :alt="item.id" />
+        </div>
+      </template>
+    </Masonry>
+  </ClientOnly>
+</template>
