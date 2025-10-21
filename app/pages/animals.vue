@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { useAnimalQuestions } from '~/composable/useAnimalQuestions';
-const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMessage, quit, confirmDialogAnswer, confirmDialogVisible, selectedIndex } = useAnimalQuestions();
+const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMessage, quit, confirmDialogAnswer, confirmDialogVisible, selectedIndex , showConfirmDialog} = useAnimalQuestions();
+onBeforeRouteLeave((to, from) => {
+  return showConfirmDialog(); 
+});
 </script>
 
 <template>

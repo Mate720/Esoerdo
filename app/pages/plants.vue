@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { usePlantQuestions } from '~/composable/usePlantQuestions';
-const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMessage, quit, confirmDialogAnswer, confirmDialogVisible, selectedIndex } = usePlantQuestions();
-
-const selectedAnswer = ref<number | null>(null);
+const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMessage, quit, confirmDialogAnswer, confirmDialogVisible, selectedIndex, showConfirmDialog } = usePlantQuestions();
+onBeforeRouteLeave((to, from) => {
+  return showConfirmDialog(); 
+});
 </script>
 
 <template>

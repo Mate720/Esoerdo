@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useEveryQuestions } from '~/composable/useEveryQuestions';
-const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMessage, quit, confirmDialogAnswer, confirmDialogVisible, selectedIndex } = useEveryQuestions();
-
+const { questions, next, correct, actual, checkAnswer, onSelect, reset, resultMessage, quit, confirmDialogAnswer, confirmDialogVisible, selectedIndex, showConfirmDialog, onBeforeRouteLeave } = useEveryQuestions();
+onBeforeRouteLeave((to, from) => {
+  return showConfirmDialog(); 
+});
 </script>
 
 <template>

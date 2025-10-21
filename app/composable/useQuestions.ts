@@ -92,16 +92,13 @@ export function useQuestions(questionsData: any[]) {
   };
 
   const quit = async () => {
-    const confirmed = await showConfirmDialog();
-    if (confirmed) {
       next.value = actual.value = correct.value = 0;
       selectedIndex.value = -1;
       askedQuestions.value = [];
       generateNextQuestion();
       await router.push('/quiz'); 
-    }
   };
-
+  
   watch(
     () => route.fullPath,
     () => {
@@ -143,5 +140,7 @@ export function useQuestions(questionsData: any[]) {
     confirmDialogVisible,
     confirmDialogAnswer,
     quit,
+    showConfirmDialog,
+    onBeforeRouteLeave
   };
 }
